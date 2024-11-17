@@ -1,0 +1,114 @@
+/* General body styles */
+body {
+    display: flex; /* Use flexbox for body */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: flex-start; /* Align items to the top */
+    min-height: 100vh; /* Ensure body takes full height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-color: #f9f9f9; /* Light background color */
+}
+
+/* Navigation styles */
+nav {
+    margin-top: auto;
+    background-color: #4CAF50; /* Green background for the navigation */
+    color: white; /* White text color */
+    padding: 15px; /* Padding around navigation items */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space items evenly */
+    position: fixed; /* Fix the navigation at the top */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+nav h1 {
+    margin: 0; /* Remove margin for the heading */
+}
+
+nav ul {
+    list-style: none; /* Remove bullet points */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+nav ul li {
+    display: inline; /* Display list items inline */
+    margin-left: 20px; /* Space between items */
+}
+
+nav ul li a {
+    color: white; /* White text for links */
+    text-decoration: none; /* Remove underline from links */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+nav ul li a:hover {
+    color: #ddd; /* Change color on hover */
+}
+
+/* Main container styles */
+.main-container {
+    max-width: 80%; /* Maximum width for readability */
+    width: 80%; /* Ensure it takes up 80% of the screen width */
+    padding: 50px; /* Padding around the content */
+    background-color: #ffffff; /* White background for content area */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 80px auto; /* Center the container with top margin for nav */
+    border: 1px solid #ccc; /* Optional: Add a border */
+    display: flex; /* Use flexbox for centering content */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center children vertically */
+}
+
+/* Heading styles */
+.main-container h2 {
+    font-size: 2.5em; /* Large font size for main heading */
+    color: #333; /* Dark grey color */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Section heading styles */
+.main-container h3 {
+    font-size: 1.8em; /* Medium font size for section headings */
+    color: #4CAF50; /* Green color for section headings */
+    margin-top: 30px; /* Space above section headings */
+    margin-bottom: 10px; /* Space below section headings */
+}
+
+/* Paragraph styles */
+.main-container p {
+    font-size: 1.1em; /* Normal font size for paragraphs */
+    line-height: 1.6; /* Line height for readability */
+    color: #555; /* Medium grey color */
+    margin-bottom: 20px; /* Space below paragraphs */
+}
+
+/* List styles */
+.main-container ul {
+    list-style-type: disc; /* Use bullet points for lists */
+    padding-left: 20px; /* Indent list items */
+    margin-bottom: 20px; /* Space below lists */
+}
+
+/* List item styles */
+.main-container li {
+    font-size: 1.1em; /* Normal font size for list items */
+    color: #555; /* Medium grey color */
+    margin-bottom: 10px; /* Space below each list item */
+}
+
+/* Footer styles */
+footer {
+    background-color: #4CAF50; /* Green background for footer */
+    color: white; /* White text color */
+    text-align: center; /* Center text */
+    padding: 15px; /* Padding above and below */
+    position: relative; /* Position relative for proper placement */
+    width: 100%; /* Full width */
+    bottom: 0; /* Stick to the bottom */
+    margin-top: 20px; /* Space above footer */
+}

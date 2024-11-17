@@ -1,0 +1,173 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background color */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes full height */
+}
+
+nav {
+    background-color: #4CAF50; /* Navigation background color */
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center nav items */
+}
+
+nav ul li {
+    margin: 0 15px; /* Space between nav items */
+}
+
+nav ul li a {
+    color: white; /* White text for links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+nav ul li a:hover {
+    color: #f0f0f0; /* Light color on hover */
+}
+
+main {
+    flex: 1; /* Allow main to grow */
+    max-width: 800px; /* Max width for main content */
+    margin: 0 auto; /* Center main content */
+    padding: 20px; /* Padding around main content */
+    background-color: #ffffff; /* White background for main content */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50; /* Green color for headings */
+}
+
+h2 {
+    color: #333; /* Dark color for subheadings */
+}
+
+/* General Styles Continued */
+p {
+    text-align: center; /* Center-align paragraphs */
+    color: #555; /* Darker gray for text */
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    margin-top: 20px; /* Space above form */
+}
+
+label {
+    margin-bottom: 5px; /* Space below label */
+    font-weight: bold; /* Bold labels for emphasis */
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: 10px; /* Padding inside input and textarea */
+    margin-bottom: 15px; /* Space below input and textarea */
+    border: 1px solid #ccc; /* Border for input and textarea */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size for better readability */
+}
+
+textarea {
+    height: 100px; /* Height for textarea */
+    resize: none; /* Prevent resizing */
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+#feedbackContainer {
+    margin-top: 20px; /* Space above feedback section */
+}
+
+.feedback-item {
+    border: 1px solid #ccc; /* Border for feedback items */
+    padding: 10px; /* Padding for feedback items */
+    margin-bottom: 10px; /* Space between feedback items */
+    background-color: #f9f9f9; /* Light gray background */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#toggleFeedbackButton {
+    margin-top: 20px; /* Space above the button */
+    padding: 10px 15px; /* Padding for the button */
+    background-color: #007BFF; /* Blue background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+#toggleFeedbackButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: 20px; /* Space above footer */
+    padding: 10px 0;
+    background-color: #4CAF50; /* Footer background color */
+    color: white; /* White text for footer */
+    border-radius: 5px;
+    width: 100%; /* Full width */
+}
+
+footer p {
+    margin: 0; /* Remove default margin */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column; /* Stack nav items vertically on small screens */
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Space between nav items */
+    }
+
+    main {
+        padding: 10px; /* Less padding on small screens */
+    }
+
+    textarea {
+        height: 80px; /* Adjust textarea height for smaller screens */
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+}
+

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <title>Contact Us</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dbms.html">About DBMS</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Contact Us</h1>
+        <p>If you have any questions or feedback, feel free to reach out!</p>
+        <p>Email: <a href="mailto:dheeraj@example.com">dheeraj@example.com</a></p>
+    
+        <h2>Contact Form</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Your name" required aria-label="Your name">
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Your email" required aria-label="Your email">
+    
+            <label for="message">Message:</label>
+            <textarea id="message" placeholder="Your message..." required aria-label="Your message"></textarea>
+    
+            <button type="submit">Send Message</button>
+        </form>
+    
+        <h2>Feedback</h2>
+        <form id="feedbackForm">
+            <label for="feedbackRating">Rating (Out of 5):</label>
+            <select id="feedbackRating" required aria-label="Feedback rating">
+                <option value="" disabled selected>Select rating</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+    
+            <textarea id="feedbackMessage" placeholder="Your feedback..." required aria-label="Your feedback"></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+    
+        <div id="feedbackContainer"></div>
+        <button id="toggleFeedbackButton">Show More Feedback</button>
+    </main>
+
+    <footer>
+        <p>Created by Dheeraj Vaishnav, Kolhapur, Maharashtra</p>
+    </footer>
+
+    <script>
+        // JavaScript code for handling form submissions
+        const feedbacks = [];
+const feedbackContainer = document.getElementById('feedbackContainer');
+const toggleFeedbackButton = document.getElementById('toggleFeedbackButton');
+let currentFeedbackIndex = 0;
+const feedbackLimit = 5;
+let isShowingMore = false;
+
+// Function to render feedback
+function renderFeedback() {
+    feedbackContainer.innerHTML = '';
+    const feedbackToShow = feedbacks.slice(0, currentFeedbackIndex + feedbackLimit);
+
+    feedbackToShow.forEach(feedback => {
+        const feedbackItem = document.createElement('div');
+        feedbackItem.className = 'feedback-item';
+        feedbackItem.innerHTML = `<strong>Rating:</strong> ${feedback.rating}<br><strong>Feedback:</strong> ${feedback.message}`;
+        feedbackContainer.appendChild(feedbackItem);
+    });
+
+    if (currentFeedbackIndex + feedbackLimit < feedbacks.length) {
+        toggleFeedbackButton.textContent = isShowingMore ? 'Show Less Feedback' : 'Show More Feedback';
+    } else {
+        toggleFeedbackButton.style.display = 'none';
+    }
+}
+
+// Fetch feedback from the server
+fetch('/get-feedback')
+    .then(response => response.json())
+    .then(data => {
+        feedbacks.push(...data.feedback);
+        renderFeedback();
+    })
+    .catch(error => console.error('Error fetching feedback:', error));
+
+// Event listener for feedback form submission
+document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const feedbackRating = document.getElementById('feedbackRating').value;
+    const feedbackMessage = document.getElementById('feedbackMessage').value;
+
+    fetch('/submit-feedback', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ rating: feedbackRating, message: feedbackMessage }),
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+        alert("Your feedback has been submitted!");
+        this.reset();
+
+        // Add the new feedback to the local array
+        feedbacks.push({ rating: feedbackRating, message: feedbackMessage });
+
+        // Re-render feedback
+        currentFeedbackIndex = feedbacks.length;
+        renderFeedback();
+    })
+    .catch(error => console.error('Error submitting feedback:', error));
+});
+
+// Event listener for the "Show More Feedback" button
+toggleFeedbackButton.addEventListener('click', function() {
+    isShowingMore = !isShowingMore;
+
+    if (isShowingMore) {
+        currentFeedbackIndex += feedbackLimit;
+    } else {
+        currentFeedbackIndex -= feedbackLimit;
+        if (currentFeedbackIndex < 0) {
+            currentFeedbackIndex = 0;
+        }
+    }
+
+    renderFeedback();
+});
+    </script>
+</body>
+</html>
